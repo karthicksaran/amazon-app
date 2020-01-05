@@ -1,0 +1,55 @@
+<form #formname="ngForm" (ngSubmit)="login(formname)">
+    <label for="firstName">
+    Firstname :
+    </label>
+    <input id="firstName" type="text" ngModel name="username"
+   
+    #fname="ngModel" minlength=5 required />
+    <div class="error-msg" *ngIf="fname.invalid">   
+          <div *ngIf="fname.errors.minlength">
+              Atleast Three
+          </div>
+
+          <div *ngIf="fname.touched && fname.errors.required">
+            this is required
+    
+        </div>
+    </div>
+
+    <label for="lastName">
+        lastname :
+        </label>
+        <input id="lastName" type="text" ngModel name="lastName"
+       
+        #lname="ngModel" minlength=5 required />
+        <div class="error-msg" *ngIf="lname.invalid">   
+              <div *ngIf="lname.errors.minlength">
+                  Atleast Three
+              </div>
+    
+              <div *ngIf="lname.touched && lname.errors.required">
+                this is required
+        
+            </div>
+        </div>
+<div ngModelGroup="address" #address="ngModelGroup">
+        <input  type="text" ngModel name="streetName"
+         />
+
+        <input  type="text" ngModel name="cityName"
+         />
+
+        <input  type="text" ngModel name="countryName"
+         /></div>
+
+
+         <select name="qualification" ngModel >
+             <option value=""></option>
+             <option [ngValue]="q" *ngFor="let q of quali">{{q.q}}</option>
+             
+         </select>
+
+    <button type="submit" [disabled]="formname.invalid">Submit</button>
+
+
+</form>
