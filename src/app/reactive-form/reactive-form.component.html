@@ -1,0 +1,14 @@
+<form class="example-form" [formGroup]="form">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Favorite food" formControlName="food">
+    </mat-form-field>
+  <div *ngIf="form.get('food').touched && form.get('food').invalid">
+    <div *ngIf="form.get('food').errors.required">this is required</div>
+    <div *ngIf="form.get('food').errors.Spacefound">space found</div>      
+ </div>
+  
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Leave a comment" formControlName="comment">
+    </mat-form-field>
+  </form>
+  
